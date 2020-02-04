@@ -53,19 +53,6 @@ describe('the application', () => {
     expect(wrapper.find(Users).find('li').length).to.equal(0);
   });
 
-  it('displays users kept within the store', () => {
-    store = createStore(manageUsers)
-    store.dispatch({type: 'ADD_USER', user: {username: "Maxwell", hometown: "Manhattan"}})
-    store.dispatch({type: 'ADD_USER', user: {username: "Fran", hometown: "Queens"}})
-    const wrapper = mount(
-      <Provider store={store}>
-        <App />
-      </Provider>
-    );
-    expect(wrapper.find(Users).find('li').length).to.equal(2);
-    expect(wrapper.find(Users).html()).to.include('Maxwell')
-    expect(wrapper.find(Users).html()).to.include('Fran')
-  });
 
   it('updates the props as more users are added to the stores state', () => {
     store = createStore(manageUsers)
