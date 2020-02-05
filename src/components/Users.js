@@ -3,12 +3,18 @@ import { connect } from "react-redux";
 
 class Users extends Component {
   render() {
-    debugger;
+    let users = this.props.users.map((user, index) => (
+      <li key={index}>{user.username}</li>
+    ));
+
+    let count = this.props.users.length;
+
     return (
       <div>
         <ul>
           Users!
-          <p>{this.props.users[this.props.users - 1]}</p>
+          <p>{users}</p>
+          <p>{count}</p>
         </ul>
       </div>
     );
